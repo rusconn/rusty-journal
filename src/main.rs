@@ -1,3 +1,9 @@
+use structopt::StructOpt;
+
+mod cli;
+
 fn main() {
-    println!("Hello, world!");
+    let args = cli::CommandLineArgs::from_args();
+
+    println!("{:#?}", args);
 }
