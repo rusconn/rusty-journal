@@ -1,0 +1,7 @@
+version: "3.9"
+
+services:
+  app:
+    image: rusconn/rusty-journal:1.0.0
+    build:
+      context: .devcontainer

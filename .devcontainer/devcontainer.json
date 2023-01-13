@@ -1,0 +1,26 @@
+{
+  "name": "rusty-journal",
+  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"],
+  "service": "app",
+  "workspaceFolder": "/app",
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "fish",
+    "terminal.integrated.profiles.linux": {
+      "fish": {
+        "path": "/usr/bin/fish",
+        "args": ["-l"]
+      }
+    }
+  },
+  "extensions": [
+    "ms-ceintl.vscode-language-pack-ja",
+    "artdiniz.quitcontrol-vscode",
+    "ms-azuretools.vscode-docker",
+    "mhutchie.git-graph",
+    "davidanson.vscode-markdownlint",
+    "rust-lang.rust-analyzer",
+    "serayuzgur.crates",
+    "tamasfe.even-better-toml"
+  ],
+  "shutdownAction": "stopCompose"
+}

@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  app:
+    image: rusty-journal:1.0.0
+    build:
+      context: dockerfiles
+    working_dir: /app
+    volumes:
+      - .:/app:cached
+      - target:/app/target
+    tty: true
+
+volumes:
+  target:
