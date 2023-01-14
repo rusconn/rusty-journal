@@ -1,33 +1,31 @@
 use std::path::PathBuf;
 
-use structopt::StructOpt;
+use clap::{Parser, Subcommand};
 
-#[derive(Debug, StructOpt)]
-#[structopt(
+#[derive(Debug, Parser)]
+#[command(
     name = "Rusty Journal",
-    about = "A command line to-do app written in Rust"
+    version,
+    about = "A command line to-do app written in Rust",
+    long_about = None
 )]
 pub struct CommandLineArgs {
-    #[structopt(subcommand)]
+    #[command(subcommand)]
     pub action: Action,
 
-    #[structopt(parse(from_os_str), short, long)]
+    #[arg(short, long)]
     pub journal_file: Option<PathBuf>,
 }
 
-#[derive(Debug, StructOpt)]
+#[derive(Debug, Subcommand)]
 pub enum Action {
     /// Write tasks to the journal file.
     Add {
         /// The task description text.
-        #[structopt()]
         text: String,
     },
     /// Remove an entry from the journal file by position.
-    Done {
-        #[structopt()]
-        position: usize,
-    },
+    Done { position: usize },
     /// List all tasks in the journal file.
     List,
 }

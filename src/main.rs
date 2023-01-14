@@ -1,7 +1,7 @@
 use std::path::PathBuf;
 
 use anyhow::Context;
-use structopt::StructOpt;
+use clap::Parser;
 
 use cli::{Action::*, CommandLineArgs};
 use tasks::Task;
@@ -14,7 +14,7 @@ fn main() -> anyhow::Result<()> {
     let CommandLineArgs {
         action,
         journal_file,
-    } = CommandLineArgs::from_args();
+    } = CommandLineArgs::parse();
 
     let journal_file = journal_file
         .or_else(find_default_journal_file)
